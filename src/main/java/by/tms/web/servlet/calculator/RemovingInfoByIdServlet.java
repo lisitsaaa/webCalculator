@@ -1,0 +1,23 @@
+package by.tms.web.servlet.calculator;
+
+import by.tms.service.OperationService;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+import static by.tms.web.util.WebMessage.OPERATION_WAS_REMOVED;
+
+@WebServlet("/removingById")
+public class RemovingInfoByIdServlet extends HttpServlet {
+    private static final String ID = "id";
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter(ID));
+        OperationService.getInstance().removeById(id);
+        resp.getWriter().println(OPERATION_WAS_REMOVED);
+    }
+}
