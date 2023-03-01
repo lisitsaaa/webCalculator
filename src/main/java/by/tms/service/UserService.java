@@ -25,6 +25,13 @@ public class UserService {
         thread.start();
     }
 
+    public void changeNameByUSerName(String username, String name){
+        Thread thread = new Thread(() -> {
+            storage.changeNameByUserName(username,name);
+        });
+        thread.start();
+    }
+
     public Optional<User> findByUsername(String username) {
         return storage.findByUserName(username);
     }

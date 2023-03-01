@@ -11,6 +11,7 @@ public class JDBCUserStorage {
     private static final String PASSWORD = "root";
     private static final String INSERT = "insert into web_users values (default, ?, ?, ?)";
     private static final String SELECT_BY_ID = "select * from web_users where username = ?";
+    private static final String UPDATE_NAME = "update web_users set name = ? where username = ?";
 
     private final Connection connection;
 
@@ -28,6 +29,17 @@ public class JDBCUserStorage {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getUsername());
             preparedStatement.setString(3, user.getPassword());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void changeNameByUserName(String userName, String name){
+        try(Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_NAME);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, userName);
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);

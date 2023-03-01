@@ -5,7 +5,7 @@ public class User {
     private int id = 1;
     private final String username;
     private final String password;
-    private final String name;
+    private String name;
 
 
     public User(String username, String password, String name) {
@@ -25,8 +25,8 @@ public class User {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUsername() {
