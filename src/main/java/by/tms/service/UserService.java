@@ -32,6 +32,13 @@ public class UserService {
         thread.start();
     }
 
+    public void changePasswordByUSerName(String username, String password){
+        Thread thread = new Thread(() -> {
+            storage.changePasswordByUserName(username,password);
+        });
+        thread.start();
+    }
+
     public Optional<User> findByUsername(String username) {
         return storage.findByUserName(username);
     }

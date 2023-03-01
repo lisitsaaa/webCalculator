@@ -12,6 +12,7 @@ public class JDBCUserStorage {
     private static final String INSERT = "insert into web_users values (default, ?, ?, ?)";
     private static final String SELECT_BY_ID = "select * from web_users where username = ?";
     private static final String UPDATE_NAME = "update web_users set name = ? where username = ?";
+    private static final String UPDATE_PASSWORD = "update web_users set password = ? where username = ?";
 
     private final Connection connection;
 
@@ -35,11 +36,22 @@ public class JDBCUserStorage {
         }
     }
 
-    public void changeNameByUserName(String userName, String name){
+    public void changeNameByUserName(String username, String name){
         try(Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_NAME);
             preparedStatement.setString(1, name);
-            preparedStatement.setString(2, userName);
+            preparedStatement.setString(2, username);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void changePasswordByUserName(String username, String password){
+        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)){
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PASSWORD);
+            preparedStatement.setString(1, password);
+            preparedStatement.setString(2, username);
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);

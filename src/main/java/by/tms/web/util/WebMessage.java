@@ -9,6 +9,7 @@ public final class WebMessage {
     public static final String INVALID_INFO = "invalid info";
     public static final String HELLO_MESSAGE = "hello, %s!";
     public static final String NEW_NAME_MESSAGE = "your new name %s";
+    public static final String NEW_PASSWORD_MESSAGE = "your new password %s";
     public static final String OPERATION_WAS_REMOVED = "operation was removed";
     public static final String OPERATIONS_WERE_REMOVED = "operations were removed";
     public static final String AUTHORIZATION_EXAMPLE = "localhost:8080/authorization?name=NAME&username=USERNAME&password=PASSWORD";
