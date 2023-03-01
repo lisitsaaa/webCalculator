@@ -1,6 +1,7 @@
 package by.tms.service;
 
 import by.tms.entity.Operation;
+import by.tms.entity.User;
 import by.tms.storage.JDBCOperationStorage;
 import by.tms.storage.OperationStorage;
 
@@ -8,16 +9,15 @@ import java.util.List;
 import java.util.Optional;
 
 public class OperationService {
-    private static OperationService calculatorService;
+    private static OperationService operationService;
     private OperationService(){}
 
     public static synchronized OperationService getInstance(){
-        if(calculatorService == null) {
-            calculatorService = new OperationService();
+        if(operationService == null) {
+            operationService = new OperationService();
         }
-        return calculatorService;
+        return operationService;
     }
-
 
     private final OperationStorage storage = new JDBCOperationStorage();
 
@@ -94,16 +94,18 @@ public class OperationService {
         thread.start();
     }
 
-    public List<Operation> findAll() {
-        return storage.findAll(3);
+    public List<Operation> findAll(User user) {
+        return storage.findAll(user.getId());
     }
 
     public Optional<Operation> findById(int id) {
         return storage.findById(id);
     }
 
-    public void removeAll() {
-        Thread thread = new Thread(storage::removeAll);
+    public void removeAll(User user) {
+        Thread thread = new Thread(() -> {
+            storage.removeAll(user.getId());
+        });
         thread.start();
     }
 

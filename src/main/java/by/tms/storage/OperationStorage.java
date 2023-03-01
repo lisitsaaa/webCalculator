@@ -9,7 +9,7 @@ public interface OperationStorage {
     void save(Operation operation);
     List<Operation> findAll(int userId);
     Optional<Operation> findById(int operationId);
-    void removeAll();
+    void removeAll(int userId);
     void removeById(int operationId);
 
 

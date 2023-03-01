@@ -12,12 +12,11 @@ public class JDBCOperationStorage implements OperationStorage {
     private static final String USER_NAME = "postgres";
     private static final String PASSWORD = "root";
 
-    private static final String INSERT = "insert into operations values (default,?,?,?,?)";
-    private static final String SELECT_ALL_BY_USER_ID = "select * from operations where user_id = ?";
-    private static final String SELECT_BY_ID = "select * from operations where id = ?";
-    private static final String DELETE_BY_ID = "delete from operations where id = ?";
-    private static final String DELETE_ALL = "delete from operations";
-
+    private static final String INSERT = "insert into web_operations values (default,?,?,?,?)";
+    private static final String SELECT_ALL_BY_USER_ID = "select * from web_operations where user_id = ?";
+    private static final String SELECT_BY_ID = "select * from web_operations where id = ?";
+    private static final String DELETE_BY_ID = "delete from web_operations where id = ?";
+    private static final String DELETE_ALL = "delete from web_operations where user_id = ?";
 
     @Override
     public void save(Operation operation) {
@@ -80,7 +79,6 @@ public class JDBCOperationStorage implements OperationStorage {
         return numbers;
     }
 
-
     @Override
     public Optional<Operation> findById(int id) {
         try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
@@ -99,10 +97,11 @@ public class JDBCOperationStorage implements OperationStorage {
     }
 
     @Override
-    public void removeAll() {
+    public void removeAll(int userId) {
         try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
-            Statement statement = connection.createStatement();
-            statement.execute(DELETE_ALL);
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_ALL);
+            preparedStatement.setInt(1, userId);
+            preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

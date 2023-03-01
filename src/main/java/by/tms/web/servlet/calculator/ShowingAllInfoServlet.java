@@ -1,6 +1,7 @@
 package by.tms.web.servlet.calculator;
 
 import by.tms.entity.Operation;
+import by.tms.entity.User;
 import by.tms.service.OperationService;
 
 import javax.servlet.ServletException;
@@ -15,9 +16,11 @@ import static by.tms.web.util.WebMessage.STORAGE_IS_EMPTY;
 
 @WebServlet("/showingAll")
 public class ShowingAllInfoServlet extends HttpServlet {
+    private static final String CURRENT_USER = "currentUser";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Operation> allByUser = OperationService.getInstance().findAll();
+        User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
+        List<Operation> allByUser = OperationService.getInstance().findAll(currentUser);
         if (allByUser.isEmpty()) {
             resp.getWriter().println(STORAGE_IS_EMPTY);
         } else {
