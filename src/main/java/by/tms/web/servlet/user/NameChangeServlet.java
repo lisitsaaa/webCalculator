@@ -13,7 +13,7 @@ import java.io.IOException;
 import static by.tms.web.util.WebMessage.MAIN_MENU;
 import static by.tms.web.util.WebMessage.NEW_NAME_MESSAGE;
 
-@WebServlet(name = "nameChange",value = "/nameChange")
+@WebServlet(name = "NameChange",value = "/nameChange")
 public class NameChangeServlet extends HttpServlet {
     private static final String CURRENT_USER = "currentUser";
     private static final String NAME = "name";
