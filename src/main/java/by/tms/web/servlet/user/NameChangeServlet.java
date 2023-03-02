@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static by.tms.web.util.WebMessage.MAIN_MENU;
 import static by.tms.web.util.WebMessage.NEW_NAME_MESSAGE;
 
 @WebServlet(name = "nameChange",value = "/nameChange")
@@ -23,5 +24,7 @@ public class NameChangeServlet extends HttpServlet {
         UserService.getInstance().changeNameByUSerName(currentUser.getUsername(), name);
         currentUser.setName(name);
         resp.getWriter().println(String.format(NEW_NAME_MESSAGE, currentUser.getName()));
+        resp.getWriter().println(String.format(MAIN_MENU, currentUser.getName()));
+
     }
 }

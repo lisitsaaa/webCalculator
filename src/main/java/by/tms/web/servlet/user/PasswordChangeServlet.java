@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static by.tms.web.util.WebMessage.MAIN_MENU;
+
 @WebServlet(name = "passwordChange",value = "/passwordChange")
 public class PasswordChangeServlet extends HttpServlet {
     private static final String CURRENT_USER = "currentUser";
@@ -26,6 +28,7 @@ public class PasswordChangeServlet extends HttpServlet {
             UserService.getInstance().changePasswordByUSerName(currentUser.getUsername(),password);
             currentUser.setPassword(password);
             resp.getWriter().println(String.format(WebMessage.NEW_PASSWORD_MESSAGE, currentUser.getPassword()));
+            resp.getWriter().println(String.format(MAIN_MENU, currentUser.getName()));
         }
     }
 }
