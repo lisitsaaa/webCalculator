@@ -18,6 +18,8 @@ public class MainServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
         resp.getWriter().println(String.format(HELLO_MESSAGE, currentUser.getName()));
-        resp.getWriter().println(CALCULATOR_AND_HISTORY_MENU);
+        resp.getWriter().println(NAME_PASSWORD_CHANGE_MESSAGE);
+        resp.getWriter().println(CALCULATOR_MENU);
+        resp.getWriter().println(HISTORY_MENU);
     }
 }

@@ -24,9 +24,10 @@ public class Operation {
         this.owner = owner;
     }
 
-    public Operation(List<Double> numbers, Type type) {
+    public Operation(List<Double> numbers, Type type, User owner) {
         this.numbers = numbers;
         this.type = type;
+        this.owner = owner;
     }
 
     public User getOwner() {

@@ -32,7 +32,7 @@ public class AuthorizationServlet extends HttpServlet {
                 if (user.getPassword().equals(password)) {
                     req.getSession().setAttribute(CURRENT_USER, user);
                     resp.getWriter().println(String.format(HELLO_MESSAGE, user.getName()));
-                    resp.getWriter().println(CALCULATOR_AND_HISTORY_MENU);
+                    resp.getWriter().println(String.format(MAIN_MENU, user.getName()));
                 } else {
                     resp.getWriter().println(WRONG_PASSWORD);
                 }

@@ -10,10 +10,12 @@ import java.util.Optional;
 
 public class OperationService {
     private static OperationService operationService;
-    private OperationService(){}
 
-    public static synchronized OperationService getInstance(){
-        if(operationService == null) {
+    private OperationService() {
+    }
+
+    public static synchronized OperationService getInstance() {
+        if (operationService == null) {
             operationService = new OperationService();
         }
         return operationService;
@@ -22,7 +24,7 @@ public class OperationService {
     private final OperationStorage storage = new JDBCOperationStorage();
 
     public Optional<Operation> calculate(Operation operation) {
-        switch ( operation.getType()) {
+        switch (operation.getType()) {
             case SUM: {
                 operation.setResult(addition(operation.getNumbers()));
                 saveOperation(operation);
@@ -87,7 +89,7 @@ public class OperationService {
         return res;
     }
 
-    private void saveOperation(Operation operation){
+    private void saveOperation(Operation operation) {
         Thread thread = new Thread(() -> {
             storage.save(operation);
         });

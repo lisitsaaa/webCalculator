@@ -1,6 +1,7 @@
 package by.tms.web.servlet.calculator;
 
 import by.tms.entity.Operation;
+import by.tms.entity.User;
 import by.tms.service.OperationService;
 
 import javax.servlet.ServletException;
@@ -17,25 +18,27 @@ import static by.tms.web.util.WebMessage.*;
 
 @WebServlet("/calculate")
 public class CalculatorServlet extends HttpServlet {
+    private static final String CURRENT_USER = "currentUser";
     private static final String NUMBERS = "numbers";
     private static final String TYPE = "type";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
         String numbers = req.getParameter(NUMBERS);
         String type = req.getParameter(TYPE);
 
-        Optional<Operation> result = getResult(numbers, type);
+        Optional<Operation> result = getResult(numbers, type, currentUser);
         if (result.isPresent()) {
             resp.getWriter().println(result.get());
         } else {
             resp.getWriter().println(ERROR_MESSAGE);
         }
         resp.getWriter().println();
-        resp.getWriter().println(CALCULATOR_AND_HISTORY_MENU);
+        resp.getWriter().println(String.format(MAIN_MENU, currentUser.getName()));
     }
 
-    private Optional<Operation> getResult(String numbers, String type) {
+    private Optional<Operation> getResult(String numbers, String type, User currentUser) {
         Optional<Operation.Type> type1 = readOperationType(type.toUpperCase());
 
         if (type1.isPresent()) {
@@ -46,7 +49,7 @@ public class CalculatorServlet extends HttpServlet {
             for (String number : split) {
                 numbersList.add(Double.parseDouble(number));
             }
-            Operation operation = new Operation(numbersList, operationType);
+            Operation operation = new Operation(numbersList, operationType, currentUser);
             return OperationService.getInstance().calculate(operation);
         }
         return Optional.empty();
