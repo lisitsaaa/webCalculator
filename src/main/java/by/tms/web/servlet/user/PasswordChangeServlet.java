@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/passwordChange")
+@WebServlet(name = "passwordChange",value = "/passwordChange")
 public class PasswordChangeServlet extends HttpServlet {
     private static final String CURRENT_USER = "currentUser";
     private static final String PASSWORD = "password";

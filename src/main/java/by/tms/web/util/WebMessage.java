@@ -13,6 +13,7 @@ public final class WebMessage {
     public static final String OPERATION_WAS_REMOVED = "operation was removed";
     public static final String OPERATIONS_WERE_REMOVED = "operations were removed";
     public static final String AUTHORIZATION_EXAMPLE = "localhost:8080/authorization?username=USERNAME&password=PASSWORD";
+    public static final String REGISTRATION_EXAMPLE = "localhost:8080/registration?name=NAME&username=USERNAME&password=PASSWORD";
     public static final String HISTORY_MENU = " - history" +
             "\nlocalhost:8080/showingAll -> get all info" +
             "\nlocalhost:8080/showingById -> get info by id" +
@@ -26,7 +27,7 @@ public final class WebMessage {
             "\nmul -> *" +
             "\ndiv -> /";
 
-    public static final String NAME_PASSWORD_CHANGE_MESSAGE = " - you can change name or password" +
+    public static final String NAME_PASSWORD_CHANGE_MESSAGE = " - %s can change name or password" +
             "\nhttp://localhost:8080/nameChange?name=NEW_NAME" +
             "\nhttp://localhost:8080/passwordChange?password=NEW_PASSWORD";
 

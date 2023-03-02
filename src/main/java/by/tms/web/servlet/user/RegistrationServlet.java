@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Optional;
 
 import static by.tms.web.util.WebMessage.AUTHORIZATION_EXAMPLE;
 import static by.tms.web.util.WebMessage.HELLO_MESSAGE;
@@ -27,9 +28,14 @@ public class RegistrationServlet extends HttpServlet {
 
         if (UserValidator.isValidUsername(username)
                 && UserValidator.isValidPassword(password)) {
-            UserService.getInstance().create(new User(username,password,name));
-            resp.getWriter().println(String.format(HELLO_MESSAGE, name));
-            resp.getWriter().println(AUTHORIZATION_EXAMPLE);
+            Optional<User> user = UserService.getInstance().findByUsername(username);
+            if(user.isEmpty()){
+                UserService.getInstance().create(new User(username,password,name));
+                resp.getWriter().println(String.format(HELLO_MESSAGE, name));
+                resp.getWriter().println(AUTHORIZATION_EXAMPLE);
+            } else {
+                resp.getWriter().println("change user name");
+            }
         }
     }
 }

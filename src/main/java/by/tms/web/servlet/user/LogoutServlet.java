@@ -1,5 +1,7 @@
 package by.tms.web.servlet.user;
 
+import by.tms.web.util.WebMessage;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,5 +14,6 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().invalidate();
+        resp.getWriter().println(String.format(WebMessage.MAIN_MENU, "user"));
     }
 }
