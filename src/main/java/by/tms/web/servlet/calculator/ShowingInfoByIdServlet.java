@@ -29,7 +29,7 @@ public class ShowingInfoByIdServlet extends HttpServlet {
             req.setAttribute("operation", operation);
             getServletContext().getRequestDispatcher("/personalAccount/history/printInfoById.jsp").forward(req,resp);
         }else {
-            resp.getWriter().println(OPERATION_NOT_FOUND);
+            getServletContext().getRequestDispatcher("/personalAccount/history/storageIsEmpty.jsp").forward(req,resp);
         }
     }
 }

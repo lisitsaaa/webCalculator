@@ -20,6 +20,6 @@ public class RemovingAllInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
         OperationService.getInstance().removeAll(currentUser);
-        resp.getWriter().println(OPERATIONS_WERE_REMOVED);
+        getServletContext().getRequestDispatcher("/personalAccount/history/removing/removingHistory.jsp").forward(req,resp);
     }
 }

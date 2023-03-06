@@ -8,12 +8,12 @@
 <a href="/showingAll"> check all info</a>
 <br>
 <br>
-<a href="#"> remove all info</a>
+<a href="/removingAll"> remove all info</a>
 <br>
 <br>
 <a href="/showingById"> check info by id</a>
 <br>
 <br>
-<a href="#"> remove info by id</a>
+<a href="/removingById"> remove info by id</a>
 </body>
 </html>

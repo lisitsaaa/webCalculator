@@ -22,7 +22,7 @@ public class ShowingAllInfoServlet extends HttpServlet {
         User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
         List<Operation> allByUser = OperationService.getInstance().findAll(currentUser);
         if (allByUser.isEmpty()) {
-            resp.getWriter().println(STORAGE_IS_EMPTY);
+            getServletContext().getRequestDispatcher("/personalAccount/history/storageIsEmpty.jsp").forward(req,resp);
         } else {
             allByUser.forEach(resp.getWriter()::println);
             req.setAttribute("operations", allByUser);
