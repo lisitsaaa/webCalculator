@@ -36,7 +36,7 @@ public class JDBCOperationStorage implements OperationStorage {
         StringBuilder allStr = new StringBuilder();
         for (double number : numbers) {
             String numberStr = String.valueOf(number);
-            allStr.append(numberStr).append(", ");
+            allStr.append(numberStr).append(",");
         }
         return allStr.toString();
     }
@@ -71,7 +71,7 @@ public class JDBCOperationStorage implements OperationStorage {
     }
 
     private List<Double> getNumberList(String numbersStr) {
-        String[] split = numbersStr.split(", ");
+        String[] split = numbersStr.split(",");
         List<Double> numbers = new ArrayList<>();
         for (String str : split) {
             numbers.add(Double.parseDouble(str));

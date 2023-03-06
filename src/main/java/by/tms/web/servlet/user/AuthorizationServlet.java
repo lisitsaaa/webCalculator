@@ -22,6 +22,11 @@ public class AuthorizationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        getServletContext().getRequestDispatcher("/authorization/authorization.jsp").forward(req,resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter(USERNAME);
         String password = req.getParameter(PASSWORD);
 
@@ -31,17 +36,17 @@ public class AuthorizationServlet extends HttpServlet {
                 User user = byUsername.get();
                 if (user.getPassword().equals(password)) {
                     req.getSession().setAttribute(CURRENT_USER, user);
-                    resp.getWriter().println(String.format(HELLO_MESSAGE, user.getName()));
-                    resp.getWriter().println(String.format(MAIN_MENU, user.getName()));
+
+                    req.setAttribute("name", user.getName());
+                    getServletContext().getRequestDispatcher("/personalAccount/personalAccount.jsp").forward(req, resp);
                 } else {
-                    resp.getWriter().println(WRONG_PASSWORD);
+                    getServletContext().getRequestDispatcher("/authorization/invalidPassword.jsp").forward(req,resp);
                 }
             } else {
-                resp.getWriter().println(USER_NOT_FOUND);
+                getServletContext().getRequestDispatcher("/authorization/userNotFound.jsp").forward(req,resp);
             }
         } else {
-            resp.getWriter().println(INVALID_INFO);
+            getServletContext().getRequestDispatcher("/authorization/invalidInfoAuth.jsp").forward(req,resp);
         }
     }
-
 }

@@ -21,14 +21,21 @@ public class PasswordChangeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        getServletContext().getRequestDispatcher("/personalAccount/passwordChange.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
         String password = req.getParameter(PASSWORD);
 
         if(UserValidator.isValidPassword(password)){
             UserService.getInstance().changePasswordByUSerName(currentUser.getUsername(),password);
             currentUser.setPassword(password);
-            resp.getWriter().println(String.format(WebMessage.NEW_PASSWORD_MESSAGE, currentUser.getPassword()));
-            resp.getWriter().println(String.format(MAIN_MENU, currentUser.getName()));
+            req.setAttribute("password", currentUser.getPassword());
+            getServletContext().getRequestDispatcher("/personalAccount/personalAccount.jsp").forward(req, resp);
+        }else {
+            getServletContext().getRequestDispatcher("/personalAccount/passwordChange/invalidPassword.jsp").forward(req, resp);
         }
     }
 }

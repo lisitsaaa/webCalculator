@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static by.tms.web.util.WebMessage.*;
-
 @WebServlet("/calculate")
 public class CalculatorServlet extends HttpServlet {
     private static final String CURRENT_USER = "currentUser";
@@ -24,6 +22,11 @@ public class CalculatorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        getServletContext().getRequestDispatcher("/personalAccount/calculator/calculator.jsp").forward(req,resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
         String numbers = req.getParameter(NUMBERS);
         String type = req.getParameter(TYPE);
@@ -32,10 +35,12 @@ public class CalculatorServlet extends HttpServlet {
         if (result.isPresent()) {
             resp.getWriter().println(result.get());
         } else {
-            resp.getWriter().println(ERROR_MESSAGE);
+//            resp.getWriter().println(ERROR_MESSAGE);
         }
-        resp.getWriter().println();
-        resp.getWriter().println(String.format(MAIN_MENU, currentUser.getName()));
+        req.setAttribute("numbers", numbers);
+        req.setAttribute("type", type);
+        req.setAttribute("result", result.get());
+        getServletContext().getRequestDispatcher("/personalAccount/calculator/result.jsp").forward(req,resp);
     }
 
     private Optional<Operation> getResult(String numbers, String type, User currentUser) {

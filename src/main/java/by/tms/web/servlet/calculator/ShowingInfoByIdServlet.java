@@ -18,11 +18,16 @@ public class ShowingInfoByIdServlet extends HttpServlet {
     private static final String ID = "id";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        getServletContext().getRequestDispatcher("/personalAccount/history/idChoice.jsp").forward(req,resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter(ID));
         Optional<Operation> operation = OperationService.getInstance().findById(id);
-
         if (operation.isPresent()) {
-            resp.getWriter().println(operation.get());
+            req.setAttribute("operation", operation);
+            getServletContext().getRequestDispatcher("/personalAccount/history/printInfoById.jsp").forward(req,resp);
         }else {
             resp.getWriter().println(OPERATION_NOT_FOUND);
         }

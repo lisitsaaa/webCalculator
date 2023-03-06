@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import static by.tms.web.util.WebMessage.*;
 
-@WebFilter(servletNames = {"MainMenu", "NameChange", "PasswordChange"})
+@WebFilter(servletNames = {"NameChange", "PasswordChange"})
 public class SessionFilter extends HttpFilter {
     private static final String CURRENT_USER = "currentUser";
     @Override

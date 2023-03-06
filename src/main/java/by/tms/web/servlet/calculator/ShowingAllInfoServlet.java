@@ -25,6 +25,8 @@ public class ShowingAllInfoServlet extends HttpServlet {
             resp.getWriter().println(STORAGE_IS_EMPTY);
         } else {
             allByUser.forEach(resp.getWriter()::println);
+            req.setAttribute("operations", allByUser);
+            getServletContext().getRequestDispatcher("/personalAccount/history/printAllHistory.jsp").forward(req, resp);
         }
     }
 }
