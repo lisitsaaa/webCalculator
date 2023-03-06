@@ -10,10 +10,8 @@
     <%
         Optional<Operation> operation = (Optional<Operation>) request.getAttribute("operation");
         out.print(operation.get());
-//        out.print(String.format("numbers = %s ", operation.get().getNumbers()));
-//        out.print(String.format("type = '%s' ", operation.get().getType()));
-//        out.print(String.format("result = %s", operation.get().getResult()));
     %>
+    <a href="/personalAccount/personalAccount.jsp">personal account</a>
 </p
 </form>
 </body>

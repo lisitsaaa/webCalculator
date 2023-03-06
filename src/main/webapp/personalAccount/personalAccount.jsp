@@ -6,13 +6,13 @@
 <body>
 <h1>CALCULATOR</h1>
 <p>good day ${name}</p>
-<a href="/personalAccount/nameChange/nameChange.jsp">change name</a>
+<a href="/nameChange">change name</a>
 <br>
 <br>
-<a href="/personalAccount/passwordChange/passwordChange.jsp">change password</a>
+<a href="/passwordChange">change password</a>
 <br>
 <br>
-<a href="/personalAccount/calculator/calculator.jsp">calculator</a>
+<a href="/calculate">calculator</a>
 <br>
 <br>
 <a href="/personalAccount/history/historyMenu.jsp">history</a>

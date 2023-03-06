@@ -11,6 +11,7 @@
         List<Operation> operations = (List<Operation>) request.getAttribute("operations");
         operations.forEach(response.getWriter()::println);
     %>
+    <a href="/personalAccount/personalAccount.jsp">personal account</a>
 </ul>
 </body>
 </html>

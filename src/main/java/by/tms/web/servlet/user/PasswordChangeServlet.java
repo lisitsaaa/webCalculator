@@ -3,7 +3,6 @@ package by.tms.web.servlet.user;
 import by.tms.entity.User;
 import by.tms.service.UserService;
 import by.tms.validator.UserValidator;
-import by.tms.web.util.WebMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

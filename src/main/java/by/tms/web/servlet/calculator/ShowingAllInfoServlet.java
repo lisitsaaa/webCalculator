@@ -15,16 +15,29 @@ import java.util.List;
 @WebServlet("/showingAll")
 public class ShowingAllInfoServlet extends HttpServlet {
     private static final String CURRENT_USER = "currentUser";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
         List<Operation> allByUser = OperationService.getInstance().findAll(currentUser);
         if (allByUser.isEmpty()) {
-            getServletContext().getRequestDispatcher("/personalAccount/history/storageIsEmpty.jsp").forward(req,resp);
+            getServletContext().getRequestDispatcher("/personalAccount/history/showing/storageIsEmpty.jsp").forward(req, resp);
         } else {
-            allByUser.forEach(resp.getWriter()::println);
+//            allByUser.forEach(resp.getWriter()::println);
             req.setAttribute("operations", allByUser);
-            getServletContext().getRequestDispatcher("/personalAccount/history/printAllHistory.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/personalAccount/history/showing/printAllHistory.jsp").forward(req, resp);
         }
     }
+
+    //    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
+//        List<Operation> allByUser = OperationService.getInstance().findAll(currentUser);
+//        if (allByUser.isEmpty()) {
+//            getServletContext().getRequestDispatcher("/personalAccount/history/showing/storageIsEmpty.jsp").forward(req,resp);
+//        } else {
+//            req.setAttribute("operations", allByUser);
+//            getServletContext().getRequestDispatcher("/personalAccount/history/showing/printAllHistory.jsp").forward(req, resp);
+//        }
+//    }
 }

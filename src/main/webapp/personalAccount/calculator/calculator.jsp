@@ -12,7 +12,7 @@
   <button>calculate</button>
 </form>
 <button>
-  <a href="../index.jsp">main menu</a>
+  <a href="/personalAccount/personalAccount.jsp">personal account</a>
 </button>
 </body>
 </html>

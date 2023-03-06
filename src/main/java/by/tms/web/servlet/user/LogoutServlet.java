@@ -1,7 +1,5 @@
 package by.tms.web.servlet.user;
 
-import by.tms.web.util.WebMessage;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

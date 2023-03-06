@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-import static by.tms.web.util.WebMessage.*;
-
 @WebServlet("/authorization")
 public class AuthorizationServlet extends HttpServlet {
     private static final String USERNAME = "username";
