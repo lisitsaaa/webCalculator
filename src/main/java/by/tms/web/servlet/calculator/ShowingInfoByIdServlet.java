@@ -11,14 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-import static by.tms.web.util.WebMessage.OPERATION_NOT_FOUND;
-
 @WebServlet("/showingById")
 public class ShowingInfoByIdServlet extends HttpServlet {
     private static final String ID = "id";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/personalAccount/history/idChoice.jsp").forward(req,resp);
+        getServletContext().getRequestDispatcher("/personalAccount/history/idChoice.jsp").forward(req, resp);
     }
 
     @Override
@@ -27,9 +26,9 @@ public class ShowingInfoByIdServlet extends HttpServlet {
         Optional<Operation> operation = OperationService.getInstance().findById(id);
         if (operation.isPresent()) {
             req.setAttribute("operation", operation);
-            getServletContext().getRequestDispatcher("/personalAccount/history/printInfoById.jsp").forward(req,resp);
-        }else {
-            getServletContext().getRequestDispatcher("/personalAccount/history/storageIsEmpty.jsp").forward(req,resp);
+            getServletContext().getRequestDispatcher("/personalAccount/history/printInfoById.jsp").forward(req, resp);
+        } else {
+            getServletContext().getRequestDispatcher("/personalAccount/history/storageIsEmpty.jsp").forward(req, resp);
         }
     }
 }

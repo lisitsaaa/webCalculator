@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static by.tms.web.util.WebMessage.STORAGE_IS_EMPTY;
-
 @WebServlet("/showingAll")
 public class ShowingAllInfoServlet extends HttpServlet {
     private static final String CURRENT_USER = "currentUser";

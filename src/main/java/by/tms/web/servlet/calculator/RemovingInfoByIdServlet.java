@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static by.tms.web.util.WebMessage.OPERATION_WAS_REMOVED;
-
 @WebServlet("/removingById")
 public class RemovingInfoByIdServlet extends HttpServlet {
     private static final String ID = "id";

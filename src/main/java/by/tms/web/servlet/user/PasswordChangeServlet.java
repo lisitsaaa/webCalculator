@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static by.tms.web.util.WebMessage.MAIN_MENU;
-
-@WebServlet(name = "PasswordChange",value = "/passwordChange")
+@WebServlet(name = "PasswordChange", value = "/passwordChange")
 public class PasswordChangeServlet extends HttpServlet {
     private static final String CURRENT_USER = "currentUser";
     private static final String PASSWORD = "password";
@@ -29,12 +27,12 @@ public class PasswordChangeServlet extends HttpServlet {
         User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
         String password = req.getParameter(PASSWORD);
 
-        if(UserValidator.isValidPassword(password)){
-            UserService.getInstance().changePasswordByUSerName(currentUser.getUsername(),password);
+        if (UserValidator.isValidPassword(password)) {
+            UserService.getInstance().changePasswordByUSerName(currentUser.getUsername(), password);
             currentUser.setPassword(password);
             req.setAttribute("password", currentUser.getPassword());
             getServletContext().getRequestDispatcher("/personalAccount/personalAccount.jsp").forward(req, resp);
-        }else {
+        } else {
             getServletContext().getRequestDispatcher("/personalAccount/passwordChange/invalidPassword.jsp").forward(req, resp);
         }
     }
