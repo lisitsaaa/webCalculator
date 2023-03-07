@@ -20,11 +20,14 @@
             <p> - Name <input type="text" name="name" placeholder="Kate"></p>
             <p> - Username <input type="text" name="username" placeholder="lisitsaaa"></p>
             <p> - Password <input type="password" name="password" placeholder="A1a2A3a4"></p>
-            <button>sign up</button>
             <p style="color: darkred">invalid username or password</p>
-            <button>
-                <a href="../index.jsp">main menu</a>
-            </button>
+            <button class="btn btn-outline-success">sign up</button>
+            <form action="/personalAccount/personalAccount.jsp">
+                <button type="submit" class="btn btn-outline-primary">account</button>
+            </form>
+            <form action="/index.jsp">
+                <button type="submit" class="btn btn-outline-primary">menu</button>
+            </form>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
                     crossorigin="anonymous"></script>

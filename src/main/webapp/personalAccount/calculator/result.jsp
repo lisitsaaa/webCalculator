@@ -15,13 +15,11 @@
                 <p> - operation type <input type="text" name="type" placeholder="sum"></p>
                 <p style="color: steelblue"> example of types - sum - sub - mul - div</p>
                 <p> - Last result ${result}</p>
-                <button>calculate</button>
+                <button class="btn btn-outline-success">calculate</button>
             </form>
-            <button>
                 <form action="/personalAccount/personalAccount.jsp">
-                    <button type="submit">account</button>
+                    <button type="submit" class="btn btn-outline-primary">account</button>
                 </form>
-            </button>
         </div>
     </div>
 </div>

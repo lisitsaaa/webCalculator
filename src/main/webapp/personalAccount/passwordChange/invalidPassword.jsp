@@ -12,11 +12,11 @@
             <form action="/passwordChange" method="post">
                 <h1>CALCULATOR</h1>
                 <p> - Password <input type="password" name="password" placeholder="new password"></p>
-                <button>change password</button>
+                <p style="color: darkred">invalid password</p>
+                <button class="btn btn-outline-success">change password</button>
             </form>
-            <p style="color: darkred">invalid password</p>
             <form action="/personalAccount/personalAccount.jsp">
-                <button type="submit">account</button>
+                <button type="submit" class="btn btn-outline-primary">account</button>
             </form>
         </div>
     </div>

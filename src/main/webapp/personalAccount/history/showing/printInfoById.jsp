@@ -9,14 +9,19 @@
 </head>
 <body>
 <p>
-        <%
+    <%
         Optional<Operation> operation = (Optional<Operation>) request.getAttribute("operation");
         out.print(operation.get());
     %>
+</p>
+<form action="/personalAccount/history/historyMenu.jsp">
+    <button type="submit" class="btn btn-outline-primary">back</button>
+</form>
 <form action="/personalAccount/personalAccount.jsp">
-    <button type="submit">account</button>
+    <button type="submit" class="btn btn-outline-primary">account</button>
 </form>
-</p
-</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
 </html>

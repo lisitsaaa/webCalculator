@@ -14,12 +14,12 @@
                 <p> - Name <input type="text" name="name" placeholder="Kate"></p>
                 <p> - Username <input type="text" name="username" placeholder="lisitsaaa"></p>
                 <p> - Password <input type="password" name="password" placeholder="A1a2A3a4"></p>
-                <button>sign up</button>
+                <p style="color: darkred">sorry, but this username's used</p>
+                <button class="btn btn-outline-success">sign up</button>
             </form>
-            <p style="color: darkred">sorry, but this username's used</p>
-            <button>
-                <a href="../index.jsp">main menu</a>
-            </button>
+            <form action="/index.jsp">
+                <button type="submit" class="btn btn-outline-primary">menu</button>
+            </form>
         </div>
     </div>
 </div>

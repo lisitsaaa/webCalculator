@@ -12,10 +12,10 @@
             <form action="/nameChange" method="post">
                 <h1>CALCULATOR</h1>
                 <p> - Name <input type="text" name="name" placeholder="new name"></p>
-                <button>change name</button>
+                <button class="btn btn-outline-success">change name</button>
             </form>
             <form action="/personalAccount/personalAccount.jsp">
-                <button type="submit">account</button>
+                <button type="submit" class="btn btn-outline-primary">account</button>
             </form>
         </div>
     </div>

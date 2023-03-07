@@ -13,10 +13,10 @@
                 <h1>CALCULATOR</h1>
                 <p> - Username <input type="text" name="username" placeholder="lisitsaaa"></p>
                 <p> - Password <input type="password" name="password" placeholder="A1a2A3a4"></p>
-                <button>log in</button>
+                <button class="btn btn-outline-success">log in</button>
             </form>
             <form action="/index.jsp">
-                <button type="submit">menu</button>
+                <button type="submit" class="btn btn-outline-primary">menu</button>
             </form>
         </div>
     </div>

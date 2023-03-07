@@ -10,8 +10,11 @@
     <div class="row justify-content-center">
         <div class="col-sm-5">
             <p>history's removed</p>
+            <form action="/personalAccount/history/historyMenu.jsp">
+                <button type="submit" class="btn btn-outline-primary">back</button>
+            </form>
             <form action="/personalAccount/personalAccount.jsp">
-                <button type="submit">account</button>
+                <button type="submit" class="btn btn-outline-primary">account</button>
             </form>
         </div>
     </div>

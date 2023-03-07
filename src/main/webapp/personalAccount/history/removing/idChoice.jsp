@@ -12,13 +12,14 @@
             <form action="/removingById" method="post">
                 <h1>CALCULATOR</h1>
                 <p> - ID <input type="number" name="id" placeholder="19"></p>
-                <button>enter</button>
+                <button class="btn btn-outline-success">enter</button>
             </form>
-            <button>
-                <form action="/personalAccount/personalAccount.jsp">
-                    <button type="submit">account</button>
-                </form>
-            </button>
+            <form action="/personalAccount/history/historyMenu.jsp">
+                <button type="submit" class="btn btn-outline-primary">back</button>
+            </form>
+            <form action="/personalAccount/personalAccount.jsp">
+                <button type="submit" class="btn btn-outline-primary">account</button>
+            </form>
         </div>
     </div>
 </div>

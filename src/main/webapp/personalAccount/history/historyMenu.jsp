@@ -12,19 +12,19 @@
         <div class="col-sm-5">
             <h1>CALCULATOR</h1>
             <form action="/showingAll">
-                <button type="submit">check all</button>
+                <button type="submit" class="btn btn-outline-success">check all</button>
             </form>
             <form action="/removingAll">
-                <button type="submit">remove all</button>
+                <button type="submit" class="btn btn-outline-success">remove all</button>
             </form>
             <form action="/showingById">
-                <button type="submit">check by id</button>
+                <button type="submit" class="btn btn-outline-success">check by id</button>
             </form>
             <form action="/removingById">
-                <button type="submit">remove by id</button>
+                <button type="submit" class="btn btn-outline-success">remove by id</button>
             </form>
             <form action="/personalAccount/personalAccount.jsp">
-                <button type="submit">account</button>
+                <button type="submit" class="btn btn-outline-primary">account</button>
             </form>
         </div>
     </div>
