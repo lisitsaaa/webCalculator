@@ -16,14 +16,14 @@ public class NameChangeServlet extends HttpServlet {
     private static final String NAME = "name";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/personalAccount/nameChange.jsp").forward(req,resp);
+        getServletContext().getRequestDispatcher("/personalAccount/nameChange/nameChange.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
         String name = req.getParameter(NAME);
-        UserService.getInstance().changeNameByUSerName(currentUser.getUsername(), name);
+        UserService.getInstance().changeNameByUserName(currentUser.getUsername(), name);
         currentUser.setName(name);
         req.setAttribute("name", currentUser.getName());
         getServletContext().getRequestDispatcher("/personalAccount/personalAccount.jsp").forward(req, resp);

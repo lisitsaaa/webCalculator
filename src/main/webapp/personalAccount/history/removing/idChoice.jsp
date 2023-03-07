@@ -2,15 +2,28 @@
 <html>
 <head>
     <title>id choice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-<form action="/removingById" method="post">
-    <h1>CALCULATOR</h1>
-    <p> - ID <input type="number" name="id" placeholder="19"></p>
-    <button>enter</button>
-</form>
-<button>
-    <a href="/personalAccount/personalAccount.jsp">personal account</a>
-</button>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-5">
+            <form action="/removingById" method="post">
+                <h1>CALCULATOR</h1>
+                <p> - ID <input type="number" name="id" placeholder="19"></p>
+                <button>enter</button>
+            </form>
+            <button>
+                <form action="/personalAccount/personalAccount.jsp">
+                    <button type="submit">account</button>
+                </form>
+            </button>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
 </html>

@@ -2,18 +2,35 @@
 <html>
 <head>
     <title>history menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<h1>CALCULATOR</h1>
+
 <body>
-<a href="/showingAll"> check all info</a>
-<br>
-<br>
-<a href="/removingAll"> remove all info</a>
-<br>
-<br>
-<a href="/showingById"> check info by id</a>
-<br>
-<br>
-<a href="/removingById"> remove info by id</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-5">
+            <h1>CALCULATOR</h1>
+            <form action="/showingAll">
+                <button type="submit">check all</button>
+            </form>
+            <form action="/removingAll">
+                <button type="submit">remove all</button>
+            </form>
+            <form action="/showingById">
+                <button type="submit">check by id</button>
+            </form>
+            <form action="/removingById">
+                <button type="submit">remove by id</button>
+            </form>
+            <form action="/personalAccount/personalAccount.jsp">
+                <button type="submit">account</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
 </html>

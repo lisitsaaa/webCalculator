@@ -25,7 +25,7 @@ public class UserService {
         thread.start();
     }
 
-    public void changeNameByUSerName(String username, String name){
+    public void changeNameByUserName(String username, String name){
         Thread thread = new Thread(() -> {
             storage.changeNameByUserName(username,name);
         });
