@@ -16,9 +16,7 @@
                 <p style="color: darkred">wrong password</p>
                 <button class="btn btn-outline-success">log in</button>
             </form>
-            <form action="/index.jsp">
-                <button type="submit" class="btn btn-outline-primary">menu</button>
-            </form>
+            <button class="btn btn-outline-primary"><a href="/">menu</a></button>
         </div>
     </div>
 </div>

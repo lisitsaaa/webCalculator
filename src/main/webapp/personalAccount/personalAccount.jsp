@@ -11,22 +11,19 @@
         <div class="col-sm-5">
             <h1>CALCULATOR</h1>
             <p>good day ${name}</p>
-
-            <form action="/nameChange">
-                <button type="submit" class="btn btn-outline-success">change name</button>
-            </form>
-            <form action="/passwordChange">
-                <button type="submit" class="btn btn-outline-success">change password</button>
-            </form>
-            <form action="/calculate">
-                <button type="submit" class="btn btn-outline-success">calculator</button>
-            </form>
-            <form action="/personalAccount/history/historyMenu.jsp">
-                <button type="submit" class="btn btn-outline-success">history</button>
-            </form>
-            <form action="/logout">
-                <button type="submit" class="btn btn-outline-danger"\>log out</button>
-            </form>
+            <button class="btn btn-outline-success"><a href="/nameChange">change name</a></button>
+            <br>
+            <br>
+            <button class="btn btn-outline-success"><a href="/passwordChange">change password</a></button>
+            <br>
+            <br>
+            <button class="btn btn-outline-success"><a href="/calculator">calculator</a></button>
+            <br>
+            <br>
+            <button class="btn btn-outline-success"><a href="/personalAccount/history/historyMenu.jsp">calculator</a></button>
+            <br>
+            <br>
+            <button class="btn btn-outline-danger"><a href="/logout">log out</a></button>
         </div>
     </div>
 </div>

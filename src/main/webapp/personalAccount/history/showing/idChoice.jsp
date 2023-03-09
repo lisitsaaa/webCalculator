@@ -14,12 +14,10 @@
                 <p> - ID <input type="number" name="id" placeholder="19"></p>
                 <button class="btn btn-outline-success">enter</button>
             </form>
-            <form action="/personalAccount/history/historyMenu.jsp">
-                <button type="submit" class="btn btn-outline-primary">back</button>
-            </form>
-            <form action="/personalAccount/personalAccount.jsp">
-                <button type="submit" class="btn btn-outline-primary">account</button>
-            </form>
+            <button class="btn btn-outline-primary"><a href="/personalAccount/history/historyMenu.jsp">back</a></button>
+            <br>
+            <br>
+            <button class="btn btn-outline-primary"><a href="/personalAccount/personalAccount.jsp">account</a></button>
         </div>
     </div>
 </div>

@@ -14,6 +14,7 @@
                 <p> - Password <input type="password" name="password" placeholder="new password"></p>
                 <button class="btn btn-outline-success">change password</button>
             </form>
+
             <form action="/personalAccount/personalAccount.jsp">
                 <button type="submit" class="btn btn-outline-primary">account</button>
             </form>

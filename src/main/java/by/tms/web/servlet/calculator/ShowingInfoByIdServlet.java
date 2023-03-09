@@ -25,7 +25,8 @@ public class ShowingInfoByIdServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter(ID));
         Optional<Operation> operation = OperationService.getInstance().findById(id);
         if (operation.isPresent()) {
-            req.setAttribute("operation", operation);
+            Operation operation1 = operation.get();
+            req.setAttribute("operation1", operation1.toString());
             getServletContext().getRequestDispatcher("/personalAccount/history/showing/printInfoById.jsp").forward(req, resp);
         } else {
             getServletContext().getRequestDispatcher("/personalAccount/history/showing/storageIsEmpty.jsp").forward(req, resp);

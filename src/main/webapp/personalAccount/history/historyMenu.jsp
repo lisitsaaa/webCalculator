@@ -11,21 +11,19 @@
     <div class="row justify-content-center">
         <div class="col-sm-5">
             <h1>CALCULATOR</h1>
-            <form action="/showingAll">
-                <button type="submit" class="btn btn-outline-success">check all</button>
-            </form>
-            <form action="/removingAll">
-                <button type="submit" class="btn btn-outline-success">remove all</button>
-            </form>
-            <form action="/showingById">
-                <button type="submit" class="btn btn-outline-success">check by id</button>
-            </form>
-            <form action="/removingById">
-                <button type="submit" class="btn btn-outline-success">remove by id</button>
-            </form>
-            <form action="/personalAccount/personalAccount.jsp">
-                <button type="submit" class="btn btn-outline-primary">account</button>
-            </form>
+            <button class="btn btn-outline-success"><a href="/showingAll">check all</a></button>
+            <br>
+            <br>
+            <button class="btn btn-outline-success"><a href="/removingAll">remove all</a></button>
+            <br>
+            <br>
+            <button class="btn btn-outline-success"><a href="/showingById">check by id</a></button>
+            <br>
+            <br>
+            <button class="btn btn-outline-success"><a href="/removingById">remove by id</a></button>
+            <br>
+            <br>
+            <button class="btn btn-outline-primary"><a href="/personalAccount/personalAccount.jsp">account</a></button>
         </div>
     </div>
 </div>

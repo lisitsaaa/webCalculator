@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/calculate")
+@WebServlet("/calculator")
 public class CalculatorServlet extends HttpServlet {
     private static final String CURRENT_USER = "currentUser";
     private static final String NUMBERS = "numbers";

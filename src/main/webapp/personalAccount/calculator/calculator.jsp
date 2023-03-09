@@ -9,16 +9,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-5">
-            <form action="/calculate" method="post">
+            <form action="/calculator" method="post">
                 <h1>CALCULATOR</h1>
                 <p> - Name <input type="text" name="numbers" placeholder="22,33,44,1"></p>
                 <p> - Username <input type="text" name="type" placeholder="sum"></p>
                 <p> operations type - sum - sub - mul - div</p>
                 <button class="btn btn-outline-success">calculate</button>
             </form>
-            <form action="/personalAccount/personalAccount.jsp">
-                <button type="submit" class="btn btn-outline-primary">account</button>
-            </form>
+            <button class="btn btn-outline-primary"><a href="/personalAccount/personalAccount.jsp">account</a></button>
         </div>
     </div>
 </div>

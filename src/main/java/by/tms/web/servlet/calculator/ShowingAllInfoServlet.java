@@ -28,16 +28,4 @@ public class ShowingAllInfoServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/personalAccount/history/showing/printAllHistory.jsp").forward(req, resp);
         }
     }
-
-    //    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
-//        List<Operation> allByUser = OperationService.getInstance().findAll(currentUser);
-//        if (allByUser.isEmpty()) {
-//            getServletContext().getRequestDispatcher("/personalAccount/history/showing/storageIsEmpty.jsp").forward(req,resp);
-//        } else {
-//            req.setAttribute("operations", allByUser);
-//            getServletContext().getRequestDispatcher("/personalAccount/history/showing/printAllHistory.jsp").forward(req, resp);
-//        }
-//    }
 }
