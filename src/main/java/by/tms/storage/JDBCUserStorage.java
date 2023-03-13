@@ -36,8 +36,8 @@ public class JDBCUserStorage {
         }
     }
 
-    public void changeNameByUserName(String username, String name){
-        try(Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+    public void changeNameByUserName(String username, String name) {
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_NAME);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, username);
@@ -47,8 +47,8 @@ public class JDBCUserStorage {
         }
     }
 
-    public void changePasswordByUserName(String username, String password){
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)){
+    public void changePasswordByUserName(String username, String password) {
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PASSWORD);
             preparedStatement.setString(1, password);
             preparedStatement.setString(2, username);
@@ -59,7 +59,7 @@ public class JDBCUserStorage {
     }
 
     public Optional<User> findByUserName(String userName) {
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID);
             preparedStatement.setString(1, userName);
 

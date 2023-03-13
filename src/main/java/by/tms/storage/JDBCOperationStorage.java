@@ -12,16 +12,24 @@ public class JDBCOperationStorage implements OperationStorage {
     private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
     private static final String USER_NAME = "postgres";
     private static final String PASSWORD = "root";
-
     private static final String INSERT = "insert into web_operations values (default,?,?,?,?)";
     private static final String SELECT_ALL_BY_USER_ID = "select * from web_operations where user_id = ?";
     private static final String SELECT_BY_ID = "select * from web_operations where id = ?";
     private static final String DELETE_BY_ID = "delete from web_operations where id = ?";
     private static final String DELETE_ALL = "delete from web_operations where user_id = ?";
+    private final Connection connection;
+
+    public JDBCOperationStorage() {
+        try {
+            this.connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     public void save(Operation operation) {
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT);
             preparedStatement.setString(1, getNumbersString(operation.getNumbers()));
             preparedStatement.setDouble(2, operation.getResult());
@@ -44,7 +52,7 @@ public class JDBCOperationStorage implements OperationStorage {
 
     @Override
     public List<Operation> findAll(int userId) {
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_BY_USER_ID);
             preparedStatement.setInt(1, userId);
 
@@ -82,7 +90,7 @@ public class JDBCOperationStorage implements OperationStorage {
 
     @Override
     public Optional<Operation> findById(int id) {
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID);
 
             preparedStatement.setInt(1, id);
@@ -99,7 +107,7 @@ public class JDBCOperationStorage implements OperationStorage {
 
     @Override
     public void removeAll(int userId) {
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_ALL);
             preparedStatement.setInt(1, userId);
             preparedStatement.execute();
@@ -110,7 +118,7 @@ public class JDBCOperationStorage implements OperationStorage {
 
     @Override
     public void removeById(int id) {
-        try (Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD)) {
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_BY_ID);
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
