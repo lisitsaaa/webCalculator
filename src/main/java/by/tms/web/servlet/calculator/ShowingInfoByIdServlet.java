@@ -17,7 +17,7 @@ public class ShowingInfoByIdServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/personalAccount/history/showing/idChoice.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/history/showing/idChoice.jsp").forward(req, resp);
     }
 
     @Override
@@ -27,9 +27,9 @@ public class ShowingInfoByIdServlet extends HttpServlet {
         if (operation.isPresent()) {
             Operation operation1 = operation.get();
             req.setAttribute("operation1", operation1.toString());
-            getServletContext().getRequestDispatcher("/personalAccount/history/showing/printInfoById.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/history/showing/printInfoById.jsp").forward(req, resp);
         } else {
-            getServletContext().getRequestDispatcher("/personalAccount/history/showing/storageIsEmpty.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/history/showing/storageIsEmpty.jsp").forward(req, resp);
         }
     }
 }

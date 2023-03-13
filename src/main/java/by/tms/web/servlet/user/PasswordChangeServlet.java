@@ -18,7 +18,7 @@ public class PasswordChangeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/personalAccount/passwordChange/passwordChange.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/passwordChange/passwordChange.jsp").forward(req, resp);
     }
 
     @Override
@@ -30,9 +30,9 @@ public class PasswordChangeServlet extends HttpServlet {
             UserService.getInstance().changePasswordByUSerName(currentUser.getUsername(), password);
             currentUser.setPassword(password);
             req.setAttribute("password", currentUser.getPassword());
-            getServletContext().getRequestDispatcher("/personalAccount/personalAccount.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/").forward(req, resp);
         } else {
-            getServletContext().getRequestDispatcher("/personalAccount/passwordChange/invalidPassword.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/passwordChange/invalidPassword.jsp").forward(req, resp);
         }
     }
 }

@@ -16,7 +16,7 @@ public class NameChangeServlet extends HttpServlet {
     private static final String NAME = "name";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/personalAccount/nameChange/nameChange.jsp").forward(req,resp);
+        getServletContext().getRequestDispatcher("/nameChange/nameChange.jsp").forward(req,resp);
     }
 
     @Override
@@ -26,6 +26,6 @@ public class NameChangeServlet extends HttpServlet {
         UserService.getInstance().changeNameByUserName(currentUser.getUsername(), name);
         currentUser.setName(name);
         req.setAttribute("name", currentUser.getName());
-        getServletContext().getRequestDispatcher("/personalAccount/personalAccount.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/").forward(req, resp);
     }
 }

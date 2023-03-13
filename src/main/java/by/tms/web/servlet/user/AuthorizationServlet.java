@@ -36,7 +36,7 @@ public class AuthorizationServlet extends HttpServlet {
                     req.getSession().setAttribute(CURRENT_USER, user);
 
                     req.setAttribute("name", user.getName());
-                    getServletContext().getRequestDispatcher("/personalAccount/personalAccount.jsp").forward(req, resp);
+                    getServletContext().getRequestDispatcher("/").forward(req, resp);
                 } else {
                     getServletContext().getRequestDispatcher("/authorization/invalidPassword.jsp").forward(req,resp);
                 }

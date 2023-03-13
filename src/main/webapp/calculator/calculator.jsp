@@ -16,7 +16,7 @@
                 <p> operations type - sum - sub - mul - div</p>
                 <button class="btn btn-outline-success">calculate</button>
             </form>
-            <button class="btn btn-outline-primary"><a href="/personalAccount/personalAccount.jsp">account</a></button>
+            <button class="btn btn-outline-primary"><a href="/">menu</a></button>
         </div>
     </div>
 </div>

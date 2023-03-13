@@ -16,9 +16,7 @@
                 <p> - Password <input type="password" name="password" placeholder="A1a2A3a4"></p>
                 <button class="btn btn-outline-success">sign up</button>
             </form>
-            <form action="/index.jsp">
-                <button type="submit" class="btn btn-outline-primary">menu</button>
-            </form>
+            <button class="btn btn-outline-primary"><a href="/">menu</a></button>
         </div>
     </div>
 </div>

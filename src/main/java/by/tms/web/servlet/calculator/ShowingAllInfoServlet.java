@@ -21,11 +21,11 @@ public class ShowingAllInfoServlet extends HttpServlet {
         User currentUser = (User) req.getSession().getAttribute(CURRENT_USER);
         List<Operation> allByUser = OperationService.getInstance().findAll(currentUser);
         if (allByUser.isEmpty()) {
-            getServletContext().getRequestDispatcher("/personalAccount/history/showing/storageIsEmpty.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/history/showing/storageIsEmpty.jsp").forward(req, resp);
         } else {
 //            allByUser.forEach(resp.getWriter()::println);
             req.setAttribute("operations", allByUser);
-            getServletContext().getRequestDispatcher("/personalAccount/history/showing/printAllHistory.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/history/showing/printAllHistory.jsp").forward(req, resp);
         }
     }
 }

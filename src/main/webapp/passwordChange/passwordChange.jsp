@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>choose id</title>
+    <title>password change</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
@@ -9,15 +9,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-5">
-            <form action="/showingById" method="post">
+            <form action="/passwordChange" method="post">
                 <h1>CALCULATOR</h1>
-                <p> - ID <input type="number" name="id" placeholder="19"></p>
-                <button class="btn btn-outline-success">enter</button>
+                <p> - Password <input type="password" name="password" placeholder="new password"></p>
+                <button class="btn btn-outline-success">change password</button>
             </form>
-            <button class="btn btn-outline-primary"><a href="/personalAccount/history/historyMenu.jsp">back</a></button>
-            <br>
-            <br>
-            <button class="btn btn-outline-primary"><a href="/personalAccount/personalAccount.jsp">account</a></button>
+            <button class="btn btn-outline-primary"><a href="/">menu</a></button>
         </div>
     </div>
 </div>

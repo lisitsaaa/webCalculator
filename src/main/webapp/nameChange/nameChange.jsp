@@ -14,9 +14,7 @@
                 <p> - Name <input type="text" name="name" placeholder="new name"></p>
                 <button class="btn btn-outline-success">change name</button>
             </form>
-            <form action="/personalAccount/personalAccount.jsp">
-                <button type="submit" class="btn btn-outline-primary">account</button>
-            </form>
+            <button class="btn btn-outline-primary"><a href="/">menu</a></button>
         </div>
     </div>
 </div>

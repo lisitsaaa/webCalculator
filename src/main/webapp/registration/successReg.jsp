@@ -10,9 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-sm-5">
             <p>Hello ${name}</p>
-            <form action="/index.jsp">
-                <button type="submit" class="btn btn-outline-primary">menu</button>
-            </form>
+            <button class="btn btn-outline-primary"><a href="/">menu</a></button>
         </div>
     </div>
 </div>
